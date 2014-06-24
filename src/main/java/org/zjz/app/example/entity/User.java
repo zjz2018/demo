@@ -8,8 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name = "T_USER")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User {
 	private Long id;
 	private String name;
@@ -19,71 +23,71 @@ public class User {
 	private String email;
 	private Date birthday;
 	private String status;
-
+	
 	public Date getBirthday() {
 		return birthday;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
-
+	
 	public String getLoginName() {
 		return loginName;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public String getSalt() {
 		return salt;
 	}
-
+	
 	public String getStatus() {
 		return status;
 	}
-
+	
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
-
+	
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+	
 }
